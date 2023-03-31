@@ -1,6 +1,6 @@
 Name:		texlive-luacensor
 Version:	62167
-Release:	1
+Release:	2
 Summary:	Securely redact sensitive information using Lua
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/luacensor
