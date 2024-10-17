@@ -3,7 +3,7 @@ Version:	62167
 Release:	2
 Summary:	Securely redact sensitive information using Lua
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/luacensor
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/luacensor
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luacensor.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luacensor.doc.r%{version}.tar.xz
