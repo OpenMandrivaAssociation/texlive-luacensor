@@ -1,43 +1,27 @@
-Name:		texlive-luacensor
-Version:	62167
-Release:	2
+%global tl_name luacensor
+%global tl_revision 71922
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1.1
+Release:	%{tl_revision}.1
 Summary:	Securely redact sensitive information using Lua
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/luacensor
-License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luacensor.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/luacensor.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/luatex/latex/luacensor
+License:	lppl1.3 ofl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/luacensor.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/luacensor.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package provides simple tools for creating redacted Its
-tools are useful for lawyers, workers in sensitive industries,
-and others who need to easily produce both unrestricted
-versions of documents (for limited, secure release) and
-restricted versions of documents (for general release)
-Redaction is done both by hiding all characters and by slightly
-varying the length of strings to prevent jigsaw identification.
-It also is friendly to screen readers by adding alt-text
-indicating redacted content.
+This package provides simple tools for creating redacted Its tools are
+useful for lawyers, workers in sensitive industries, and others who need
+to easily produce both unrestricted versions of documents (for limited,
+secure release) and restricted versions of documents (for general
+release) Redaction is done both by hiding all characters and by slightly
+varying the length of strings to prevent jigsaw identification. It also
+is friendly to screen readers by adding alt-text indicating redacted
+content.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/lualatex/luacensor
-%doc %{_texmfdistdir}/doc/lualatex/luacensor
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
